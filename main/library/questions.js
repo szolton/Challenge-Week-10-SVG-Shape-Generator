@@ -17,7 +17,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "fill",
+        name: "fillColor",
         message: "Please insert the background color",
     },
 ];
