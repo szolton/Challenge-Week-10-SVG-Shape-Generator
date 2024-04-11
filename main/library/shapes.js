@@ -14,7 +14,7 @@ class Shapes {
     }
 
     // Method to set the text inside the shape
-    setText() {
+    get textElement() {
         return `<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-weight="700"
         fill="${this.textColor}">${this.text}</text>`;
     }
@@ -30,16 +30,24 @@ class Square extends Shapes {
         this.height = height;
     }
 
+    // Method to set the text inside the square shape
+    setText(text) {
+        this.text = text;
+    }
+
     renderSquare() {
+        console.log('Square fillColor:', this.fillColor); // Check the fillColor value
         return `<svg version="1.1"
-        width="500" height="500"
+        width="300" height="300"
         xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="${this.fillColor}" />
-        <rect width="${this.width}" height="${this.height}" fill="none" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />
-        ${super.setText()} <!-- Use the setText method from the Shapes class -->
+        ${this.textElement} <!-- Use the textElement property from the Shapes class -->
         </svg>`;
-    }  
+    }
 }
+
+
+
 
 class Polygon extends Shapes {
     constructor(fillColor, stroke, strokeWidth, text, textColor) {
@@ -47,15 +55,16 @@ class Polygon extends Shapes {
     }
 
     // Method to render a triangle
-    renderPolygon() {
+    renderTriangle() {
         return `<svg version="1.1"
         width="500" height="500"
         xmlns="http://www.w3.org/2000/svg">
         <polygon points="250, 60 100, 400 400, 400" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" fill="${this.fillColor}" />
-        ${super.setText()} <!-- Use the setText method from the Shapes class -->
+        ${this.textElement} <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
 }
+
 
 class Circle extends Shapes {
     radius;
@@ -69,9 +78,9 @@ class Circle extends Shapes {
         return `<svg version="1.1"
         width="500" height="500"
         xmlns="http://www.w3.org/2000/svg">
-        <circle cx="250" cy="250" r="${this.radius}" fill="${this.fillColor}" />
-        <circle cx="250" cy="250" r="${this.radius}" fill="none" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />
-        ${super.setText()} <!-- Use the setText method from the Shapes class -->
+          
+        <circle cx="250" cy="250" r="200" fill="${this.fillColor}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />
+        ${this.textElement} <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
 }
