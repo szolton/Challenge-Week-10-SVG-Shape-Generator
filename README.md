@@ -28,3 +28,5 @@ In conclusion, I set up the files to generate a logo.svg automatically and meets
 - when opening the logo.svg in a browser, it shows the pixel image that matches the criteria entered.
 
 Please follow this link to the GitHub and an additional one to a video presentation: 
+[![Screen Recorded Video](https://vimeo.com/933473966?share=copy)](https://vimeo.com/933473966?share=copy),
+and https://github.com/szolton/Challenge-Week-10-SVG-Shape-Generator 
