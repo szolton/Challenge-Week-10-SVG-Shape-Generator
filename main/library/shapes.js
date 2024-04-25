@@ -1,3 +1,4 @@
+//  Defines the class shape options
 class Shapes {
     fillColor;
     stroke;
@@ -30,13 +31,7 @@ class Square extends Shapes {
         this.height = height;
     }
 
-    // Method to set the text inside the square shape
-    setText(text) {
-        this.text = text;
-    }
-
     renderSquare() {
-        console.log('Square fillColor:', this.fillColor); // Check the fillColor value
         return `<svg version="1.1"
         width="300" height="300"
         xmlns="http://www.w3.org/2000/svg">
@@ -44,10 +39,8 @@ class Square extends Shapes {
         ${this.textElement} <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
+    
 }
-
-
-
 
 class Polygon extends Shapes {
     constructor(fillColor, stroke, strokeWidth, text, textColor) {
@@ -74,6 +67,7 @@ class Circle extends Shapes {
         this.radius = radius;
     }
 
+    // Method for rendering a circle
     renderCircle() {
         return `<svg version="1.1"
         width="500" height="500"
