@@ -40,8 +40,11 @@ class Square extends Shapes {
         return `<svg version="1.1"
         width="${width}" height="${height}"
         xmlns="http://www.w3.org/2000/svg">
-        <rect width="${this.width}" height="${this.height}" fill="${this.fillColor}" />
-        ${this.textElement} <!-- Use the textElement property from the Shapes class -->
+        <!-- Background square -->
+        <rect width="${width}" height="${height}" fill="${this.fillColor}" />;
+        <!-- Main square -->
+        <rect width="${this.width}" height="${this.height}" fill="${this.fillColor}" />;
+        ${this.textElement}; <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
 }
@@ -55,20 +58,24 @@ class Triangle extends Shapes {
     }
 
     renderShape(width = 500, height = 500) {
-        // Find the centroid of the triangle
-        const [x1, y1, x2, y2, x3, y3] = this.points;
+        // Adjust the points to make the triangle larger
+        const scaledPoints = this.points.map((point, index) => index % 2 === 0 ? point * 1.5 : point * 1.5);
+
+        // Find the centroid of the scaled triangle
+        const [x1, y1, x2, y2, x3, y3] = scaledPoints;
         const cx = (x1 + x2 + x3) / 3;
         const cy = (y1 + y2 + y3) / 3;
 
         return `<svg version="1.1"
         width="${width}" height="${height}"
         xmlns="http://www.w3.org/2000/svg">
-        <polygon points="${this.points}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" fill="${this.fillColor}" />
+        <polygon points="${scaledPoints.join(',')}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" fill="${this.fillColor}" />
         <text x="${cx}" y="${cy}" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-weight="700"
         fill="${this.textColor}">${this.text}</text>
         </svg>`;
     }
 }
+
 
 class Circle extends Shapes {
     radius;
@@ -83,27 +90,12 @@ class Circle extends Shapes {
         width="${width}" height="${height}"
         xmlns="http://www.w3.org/2000/svg">
         <!-- Background circle -->
-        <circle cx="250" cy="250" r="250" fill="${this.fillColor}" />
+        <circle cx="250" cy="250" r="250" fill="${this.fillColor}" />;
         <!-- Main circle -->
-        <circle cx="250" cy="250" r="${this.radius}" fill="${this.fillColor}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />
-        ${this.textElement} <!-- Use the textElement property from the Shapes class -->
+        <circle cx="250" cy="250" r="${this.radius}" fill="${this.fillColor}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />;
+        ${this.textElement}; <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
 }
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = { Shapes, Circle, Triangle, Square };
-
