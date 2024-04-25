@@ -1,7 +1,10 @@
 <svg version="1.1"
         width="500" height="500"
         xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circle -->
+        <circle cx="250" cy="250" r="250" fill="black" />
+        <!-- Main circle -->
         <circle cx="250" cy="250" r="undefined" fill="black" stroke="undefined" stroke-width="undefined" />
         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="60px" font-weight="700"
-        fill="red">pie</text> <!-- Use the textElement property from the Shapes class -->
+        fill="pink">ref</text> <!-- Use the textElement property from the Shapes class -->
         </svg>

@@ -82,11 +82,28 @@ class Circle extends Shapes {
         return `<svg version="1.1"
         width="${width}" height="${height}"
         xmlns="http://www.w3.org/2000/svg">
+        <!-- Background circle -->
+        <circle cx="250" cy="250" r="250" fill="${this.fillColor}" />
+        <!-- Main circle -->
         <circle cx="250" cy="250" r="${this.radius}" fill="${this.fillColor}" stroke="${this.stroke}" stroke-width="${this.strokeWidth}" />
         ${this.textElement} <!-- Use the textElement property from the Shapes class -->
         </svg>`;
     }
 }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = { Shapes, Circle, Triangle, Square };
 
